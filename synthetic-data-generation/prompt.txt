@@ -1,0 +1,23 @@
+Please generate synthetic data based on the following requirements - 
+
+1. Stick to the Data Model outlined from Data Model Description. 
+2. Create the tables in Unity Catalog. They should be in the catalog called main under a new database called social_media_sample.
+3. Data Volume wise, I'd like to have 1 million of records on the posts table, 500K records on the users table and 20K on the follows table. 
+4. Provide me 3 options on synthetic data generation so I can assess and make a decision which one to use. On each option, please provide pros and cons analysis. Let me know which one you recommend with rationale.
+5. The data generated should tell a business story following this criteria - 
+      A viral video post triggers exponential user growth and engagement surge. The platform struggles to scale, leading to:
+        - Sudden spike in new user registrations
+        - Explosive growth in posts and follows
+        - Engagement metrics show 10x increase during viral period
+        - Some users churn after initial excitement fades
+        - Demonstrates need for scalable analytics to understand growth patterns and retention
+6. Please run your plan by me before execution.
+  
+###
+  Data Model Description:                                                                                                                                                                                                                                                      
+     1. I will have three tables in total                                                                                                                                                                                                                                                             
+     2. The first table is called posts that includes following columns - id:integer, title:varchar, body:text, user_id:integer, status:varchar, created_at:timestamp. Column id is the primary key of this table.                                                                                        
+     3. The second table is called users that includes following columns - id:integer, username:varchar, role:varchar, created_at:timestamp. Column id is the primary key of the table.                                                                                                                   
+     4. The 3rd table is called follows that includes following columns - following_user_id:integer, followed_user_id:integer, created_at:timestamp. Column following_user_id and followed_user_id are the primary keys of this table.                                                                    
+     5. The relationship among these tables are - the user_id column from posts table is the foreign key to id column from users table with cardinality many to 1. The id column from users table is the foreign key to following_user_id column on follows table with cardinality 1 to many; at the same time, the id column from users table is also the foreign key to followed_user_id column on follows table with cardinality 1 to many.                                                                                                                                                                                          
+###
